@@ -1,4 +1,4 @@
-# [Sendbird](https://sendbird.com) Chat SDK for iOS (Swift)
+# [Sendbird](https://sendbird.com) Local Caching for iOS (Swift)
 
 [![Platform](https://img.shields.io/badge/Platform-iOS-orange.svg)](https://cocoapods.org/pods/SendBirdSDK)
 [![Languages](https://img.shields.io/badge/Language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/sendbird/SendBird-iOS-Swift/)
@@ -11,21 +11,16 @@
   1. [Introduction](#introduction)
   1. [Before getting started](#before-getting-started)
   1. [Getting started](#getting-started)
-  1. [Sending your first message](#sending-your-first-message)
-
 <br />
 
 ## Introduction
 
-Through Chat SDK for iOS, you can efficiently integrate real-time chat into your client app. On the client-side implementation, you can initialize, configure and build the chat with minimal effort. On the server-side, Sendbird ensures reliable infra-management services for your chat within the app. This **read.me** provides the Chat SDK’s structure, supplementary features, and the installation steps. 
+Local caching enables Sendbird Chat SDK for iOS to locally cache and retrieve group channel and message data. This facilitates offline messaging by allowing the SDK to create a channel list view or a chat view in a prompt manner and display them even when a client app is in offline mode. Provided here is a Local Caching for iOS sample to experience first-hand the benefits of Sendbird's Local Caching.
 
-### How it works
 
-It is simple to implement chat in your client app with the Chat SDK: a user logs in, sees a list of channels, selects or creates an [open channel](https://sendbird.com/docs/chat/v3/ios/guides/open-channel) or a [group channel](https://sendbird.com/docs/chat/v3/ios/guides/group-channel), and, through the use of the [channel event delegates](https://sendbird.com/docs/chat/v3/ios/guides/event-delegate), sends messages to the channel, while also receiving them from other users within the channel. 
+### More about Sendbird Local Caching for iOS
 
-### More about Sendbird Chat SDK for iOS
-
-Find out more about Sendbird Chat for iOS on [Chat SDK for iOS doc](https://sendbird.com/docs/chat/v3/ios/getting-started/about-chat-sdk). If you have any comments or questions regarding bugs and feature requests, visit [Sendbird community](https://community.sendbird.com). 
+Find out more about Sendbird Local Caching for iOS on [Local Caching for iOS doc](https://sendbird.com/docs/chat/v3/ios/guides/local-caching). If you have any comments or questions regarding bugs and feature requests, visit [Sendbird community](https://community.sendbird.com). 
 
 <br />
 
@@ -37,44 +32,21 @@ This section shows you the prerequisites you need to check for using Sendbird Ch
 
 The minimum requirements for Chat SDK for iOS are:
 
-- Mac OS with developer mode enabled
-- Xcode
-- At least one physical iOS device running iOS 9.0 and later
-- Swift 4.0 and later
+- iOS 9.0+
+- [Chat SDK for iOS](https://github.com/sendbird/sendbird-ios-framework) 3.1.0 or higher
 
-### Add-ons for Sendbird Chat SDK 
-
-Try building your Sendbird application with these two add-ons.  
-
-- [Sendbird UIKit for iOS](https://github.com/sendbird/UIKit-iOS-Swift): a development kit with an user interface that enables an easy and fast integration of standard chat features into new or existing client apps.
-
-- [Sendbird SyncManager for iOS](https://github.com/sendbird/SyncManager-iOS-Swift): a Chat SDK add-on that optimizes the user caching experience by interlinking the synchronization of the local data storage with the chat data in Sendbird server through an event-driven structure. 
-
-<br />
+Try the sample app using your data
+If you would like to try the sample app specifically fit to your usage, you can do so by replacing the default sample app ID with yours, which you can obtain by [creating your Sendbird application from the dashboard](https://sendbird.com/docs/chat/v3/ios/quickstart/send-first-message#2-step-1-create-a-sendbird-application-from-your-dashboard). Furthermore, you could also add data of your choice on the dashboard to test. This will allow you to experience the sample app with data from your Sendbird application.
 
 ## Getting started
 
-This section gives you information you need to get started with Sendbird Chat SDK for iOS. Follow the simple steps below to build the Chat SDK into your client app.
+This section gives you information you need to get started with Local Caching for iOS.
 
-### Try the sample app
+### Create a project
 
-The fastest way to test Chat SDK is to build your chat app on top of our sample app. To create a project for the sample app, download the app from our GitHub repository. The link is down below. 
+Create a project to get started: Sendbird SyncManager for iOS supports both Objective-C and Swift.
 
-- https://github.com/sendbird/Sendbird-iOS
-
-### Step 1: Create a Sendbird application from your dashboard
-
-A Sendbird application comprises everything required in a chat service including users, message, and channels. To create an application:
-
-1. Go to the [Sendbird Dashboard](https://dashboard.sendbird.com/auth/signup) and enter your email and password, and create a new account. You can also sign up with a Google account.
-2. When prompted by the setup wizard, enter your organization information to manage Sendbird applications.
-3. Lastly, when your dashboard home appears after completing setup, click **Create +** at the top-right corner.
-
-Only one Sendbird application can be integrated per app for your service regardless of the platform. All users within your Sendbird application can communicate with each other across all platforms. This means that your iOS, Android, and web client app users can all send and receive messages with one another without any further setup.
-
-> Note: All data is limited to the scope of a single application, and users in different Sendbird applications can't chat with each other.
-
-### Step 2: Install SDK via CocoaPods or Carthage
+### Install SDK via CocoaPods or Carthage
 
 Installing the Chat SDK is a simple process if you’re familiar with using external libraries or SDK’s in your projects. You can install the Chat SDK using [`CocoaPods`](https://cocoapods.org/) or [`Carthage`](https://github.com/Carthage/Carthage) like the following.
 
@@ -89,11 +61,11 @@ $ pod init
 On `Podfile`, add the following lines: 
 
 ```bash
-platform :ios, '8.0'
+platform :ios, '9.0'
 use_frameworks!
 
 target YOUR_PROJECT_TARGET do
-    pod 'SendBirdSDK'
+    pod 'SendBirdSDK', '~> 3.1.0'
 end
 ```
 
@@ -115,120 +87,3 @@ Now you can run your project with the `SendBird` framework by opening `*YOUR_PRO
 6. Add the paths to the copied frameworks to the **Output Files**. For example: `$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SendBirdSDK.framework`
 
 For an in depth guide, read on from [Adding frameworks to an application](https://github.com/Carthage/Carthage#quick-start).
-
-#### Turn on ARC
-
-To use the `SendBird` framework, you should turn on the ARC (Automatic Reference Counting). To do that, go to your project's **Build Settings**, and then set the value of Objective-C Automatic Reference Counting to Yes (in `Swift`, **Yes** by default).
-If you don't want to turn on ARC in a project-wide scope, then navigate to the **Build Phases - Compile Sources** and add `-fobjc-arc` to the **Compiler Flags** in the source file that the `SendBird` framework uses. This means that ARC is turned on only that file.
-
-### Step 3: Use the Chat SDK in Swift
-
-You can use all classes and methods just with the following one import statement, without a bridging header file, in both `Swift` and `Objective-C`.
-
-```swift
-import SendBirdSDK
-```
-
-The [Interacting with Objective-C APIs in Swift](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis) helps you with understanding how to use the Chat SDK in Swift syntax.
-
-<br />
-
-## Sending your first message
-
-Follow the step-by-step instructions below to authenticate and send your first message.
-
-### Authentication
-
-In order to use the features of the Chat SDK for iOS written in `Swift`, you should initiate the `SBDMain` instance through user authentication with Sendbird server. This instance communicates and interacts with the server based on an authenticated user account, and then the user’s client app can use the Chat SDK's features. 
-
-Here are the steps to sending your first message using Chat SDK:
-
-### Step 1: Initialize the Chat SDK
-
-Initializing the Chat SDK allows the Chat SDK to respond to the connection and state changes in your client app. Pass the `APP_ID` of your Sendbird application as an argument to a parameter in the `initWithApplicationId()`. The `initWithApplicationId()` creates a `SBDMain` instance, thus should be called a single time across your client app. It is recommended that the code for initialization be implemented in the user login view. The Chat SDK should be initialized in the `application:didFinishLaunchingWithOptions:` method of the `AppDelegate` instance. 
-
-```swift
-SBDMain.initWithApplicationId(APP_ID)
-```
-
-### Step 2: Connect to Sendbird server
-
-#### A. Using a unique user ID
-
-Connect a user to Sendbird server by using a unique user ID or with a user ID and an access token. To connect to the Sendbird server, a user is required to log in with a unique ID. A new user can authenticate with any untaken user ID, which gets automatically registered to the Sendbird system. An existing ID can log in directly. The ID must be unique within a Sendbird application to be distinguished from others, such as a hashed email address or phone number in your service.
-
-```swift
-SBDMain.connect(withUserId: USER_ID, completionHandler: { (user, error) in
-    guard error == nil else {   // Error. 
-        return
-    }
-})
-```
-
-#### B. Using a unique user ID and an access token
-
-By using Chat Platform API, you can [create a user](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user) and issue a unique access token to each user, or [issue an access token](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-update-a-user) for an existing user. Once an access token is issued, a user is required to provide the access token to log in to the Sendbird application.
-
-1. Using the [Chat Platform API](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user), create a Sendbird user account with the information submitted when a user signs up or signs in to your service.
-2. Save the user ID along with the issued access token to your securely managed persistent storage. 
-3. When a user attempts to log in to the application, load the user ID and access token from the storage, and then pass them to `connect()` method.
-4. Periodically replacing the user's access token is recommended for account security.
-
-```swift
-SBDMain.connect(withUserId: USER_ID, accessToken: ACCESS_TOKEN, completionHandler: { (user, error) in
-    guard error == nil else {   // Error.
-        return
-    }
-})
-```
-
-#### - Tips for secure user login
-
-To manage who can access your Sendbird application, go to **Settings** > **Application** > **Security** > **Access token permission** setting on your dashboard. You can change settings to prevent users without an access token from logging in to your application or restrict their access to read and write messages.
-For security reasons, you can also use a session token when a user logs in to Sendbird server instead of an access token. Go to the [Access token vs. Session token](https://sendbird.com/docs/chat/v3/platform-api/guides/user#2-create-a-user-3-access-token-vs-session-token) section from the Chat Platform API guide to learn more.
-
-### Step 3: Create a new open channel
-
-Create an [open channel](https://sendbird.com/docs/chat/v3/ios/guides/open-channel#2-create-a-channel). Once created, all users in your Sendbird application can easily participate in the channel.
-
-```swift
-SBDOpenChannel.createChannel(completionHandler: { (openChannel, error) in
-    guard error == nil else {   // Error. 
-        return
-    }
-})
-```
-
-You can also create a [group channel](https://sendbird.com/docs/chat/v3/ios/guides/group-channel#2-create-a-channel) by [inviting users as new members](https://sendbird.com/docs/chat/v3/ios/guides/group-channel#2-invite-users-as-members) to the channel.
-
-> Note: The majority of the methods used in the following steps are all asynchronous except the `initWithApplicationId()`. This means with asynchronous methods, your client app must receive success callbacks from Sendbird server through completion handlers before moving on to the next step.  
-
-### Step 4: Enter the channel
-
-Enter the channel to send and receive messages.
-
-```swift
-SBDOpenChannel.getWithUrl(CHANNEL_URL, completionHandler: { (openChannel, error) in
-    guard error == nil else {   // Error.
-        return
-    }
-    
-    openChannel?.enter(completionHandler: { (error) in
-        guard error == nil else {   // Error.
-            return
-        }
-    })
-})
-```
-
-### Step 5: Send a message to the channel 
-
-Finally, send a message to the channel. There are three types of [messages](https://sendbird.com/docs/chat/v3/platform-api/guides/messages#-3-resource-representation): a user message in a plain text, a file message in a binary file, such as an image or PDF, and an admin message in a plain text sent through the [dashboard](https://dashboard.sendbird.com/auth/signin) or [Chat Platform API](https://sendbird.com/docs/chat/v3/platform-api/guides/messages#2-send-a-message).
-
-```swift
-openChannel?.sendUserMessage(MESSAGE, data: DATA, customType: CUSTOM_TYPE, completionHandler: { (message, error) in
-    guard error == nil else {   // Error. 
-        return
-    }
-})
-```
