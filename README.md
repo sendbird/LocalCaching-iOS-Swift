@@ -46,7 +46,7 @@ This section gives you information you need to get started with Local Caching fo
 
 ### Create a project
 
-Create a project to get started: Sendbird SyncManager for iOS supports both Objective-C and Swift.
+Create a project to get started: Sendbird for iOS supports both Objective-C and Swift.
 
 ### Install SDK via CocoaPods or Carthage
 
