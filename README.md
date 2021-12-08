@@ -1,4 +1,4 @@
-# [Sendbird](https://sendbird.com) Local Caching for iOS (Swift)
+# [Sendbird](https://sendbird.com) Local Caching for iOS sample (Swift)
 
 [![Platform](https://img.shields.io/badge/Platform-iOS-orange.svg)](https://cocoapods.org/pods/SendBirdSDK)
 [![Languages](https://img.shields.io/badge/Language-Objective--C%20%7C%20Swift-orange.svg)](https://github.com/sendbird/SendBird-iOS-Swift/)
