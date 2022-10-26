@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // New init with option to use local caching or not.
+        SBDMain.connect(withUserId: "", accessToken: "", apiHost: "", wsHost: "", completionHandler: nil)
         SBDMain.initWithApplicationId("9880C4C1-E6C8-46E8-A8F1-D5890D598C08", useCaching: true, migrationStartHandler: {
             print( "Application: Called when there's an upgrade in db.")
         
