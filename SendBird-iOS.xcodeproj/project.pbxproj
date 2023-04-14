@@ -131,7 +131,7 @@
 		E2D0C15121935A580080A5F3 /* GroupChannelIncomingAudioFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D0C14F21935A580080A5F3 /* GroupChannelIncomingAudioFileMessageTableViewCell.swift */; };
 		E2D0C15221935A580080A5F3 /* GroupChannelIncomingAudioFileMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D0C15021935A580080A5F3 /* GroupChannelIncomingAudioFileMessageTableViewCell.xib */; };
 		E2FE95112489362800169552 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE95102489362800169552 /* NotificationService.swift */; };
-		E2FE95152489362800169552 /* DeliveryReceiptNotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E2FE950E2489362800169552 /* DeliveryReceiptNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E2FE95152489362800169552 /* DeliveryReceiptNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E2FE950E2489362800169552 /* DeliveryReceiptNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,15 +145,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E2FE95192489362800169552 /* Embed App Extensions */ = {
+		E2FE95192489362800169552 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				E2FE95152489362800169552 /* DeliveryReceiptNotificationService.appex in Embed App Extensions */,
+				E2FE95152489362800169552 /* DeliveryReceiptNotificationService.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -750,7 +750,7 @@
 				E21CDFBE2165619000839683 /* Frameworks */,
 				E21CDFBF2165619000839683 /* Resources */,
 				57774F9CC0D03BA2A16C5DCD /* [CP] Embed Pods Frameworks */,
-				E2FE95192489362800169552 /* Embed App Extensions */,
+				E2FE95192489362800169552 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -787,11 +787,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = SendBird;
 				TargetAttributes = {
 					E21CDFC02165619000839683 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = "";
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1098,6 +1099,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1159,6 +1161,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1197,17 +1200,19 @@
 				CODE_SIGN_ENTITLEMENTS = "SendBird-iOS/SendBird-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3.1.44;
 				DEVELOPMENT_TEAM = RM4A5PXTUX;
 				INFOPLIST_FILE = "SendBird-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.sample4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = SIMULATOR;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1221,16 +1226,18 @@
 				CODE_SIGN_ENTITLEMENTS = "SendBird-iOS/SendBird-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3.1.44;
 				DEVELOPMENT_TEAM = RM4A5PXTUX;
 				INFOPLIST_FILE = "SendBird-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendbird.sample4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1243,6 +1250,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeliveryReceiptNotificationService/DeliveryReceiptNotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3.1.44;
 				DEVELOPMENT_TEAM = RM4A5PXTUX;
 				INFOPLIST_FILE = DeliveryReceiptNotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -1267,6 +1275,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeliveryReceiptNotificationService/DeliveryReceiptNotificationService.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3.1.44;
 				DEVELOPMENT_TEAM = RM4A5PXTUX;
 				INFOPLIST_FILE = DeliveryReceiptNotificationService/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
