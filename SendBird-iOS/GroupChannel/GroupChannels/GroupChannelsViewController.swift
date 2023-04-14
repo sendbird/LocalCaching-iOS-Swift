@@ -173,7 +173,7 @@ class GroupChannelsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func buildTypingIndicatorLabel(channel: SBDGroupChannel) -> String {
-        let typingMembers = channel.getTypingMembers()
+        let typingMembers = channel.getTypingUsers()
         if typingMembers == nil || typingMembers?.count == 0 {
             return ""
         }
@@ -318,6 +318,9 @@ class GroupChannelsViewController: UIViewController, UITableViewDelegate, UITabl
             break
         case .off:
             cell.notiOffIconImageView.isHidden = false
+            break
+        @unknown default:
+            cell.notiOffIconImageView.isHidden = true
             break
         }
 
