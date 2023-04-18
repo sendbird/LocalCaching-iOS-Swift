@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // New init with option to use local caching or not.
         SBDMain.connect(withUserId: "", accessToken: "", apiHost: "", wsHost: "", completionHandler: nil)
-        SBDMain.initWithApplicationId("9880C4C1-E6C8-46E8-A8F1-D5890D598C08", useCaching: true, migrationStartHandler: {
+        SBDMain.initWithApplicationId("9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23", useCaching: true, migrationStartHandler: {
             print( "Application: Called when there's an upgrade in db.")
         
         }, completionHandler: { error in
@@ -173,6 +173,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             break
         case .off:
             return
+        @unknown default:
+            break
         }
         
         // Do Not Disturb - Need to implement as a function
@@ -349,10 +351,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     private func compareVersions(version1: String, version2: String) -> Int {
         var ret: Int = 0
         
-        var v1:[Int] = version1.split(separator: ".").map { (substring) -> Int in
+        let v1:[Int] = version1.split(separator: ".").map { (substring) -> Int in
             return Int(substring)!
         }
-        var v2 = version2.split(separator: ".").map { (substring) -> Int in
+        let v2 = version2.split(separator: ".").map { (substring) -> Int in
             return Int(substring)!
         }
         

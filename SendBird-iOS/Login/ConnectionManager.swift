@@ -127,7 +127,7 @@ class ConnectionManager: NSObject, SBDConnectionDelegate {
                     }
                     userInfo[NSLocalizedDescriptionKey] = theError.localizedDescription
                     userInfo[NSUnderlyingErrorKey] = theError
-                    let connectionError: NSError = NSError.init(domain: ErrorDomainConnection, code: theError.code, userInfo: userInfo)
+                    let _: NSError = NSError.init(domain: ErrorDomainConnection, code: theError.code, userInfo: userInfo)
                     handler(user, nil)
                 }
                 return
