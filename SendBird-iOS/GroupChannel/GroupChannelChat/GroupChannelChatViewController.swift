@@ -279,7 +279,7 @@ class GroupChannelChatViewController: UIViewController, UITableViewDelegate, UIT
         
         var i = 0
         if initial {
-            channel.markAsRead(){ error in
+            channel.markAsRead { error in
                 guard error == nil else {
                     // Handle error.
                     return
@@ -1476,7 +1476,7 @@ class GroupChannelChatViewController: UIViewController, UITableViewDelegate, UIT
     func channel(_ sender: SBDBaseChannel, didReceive message: SBDBaseMessage) {
         if sender == self.channel {
             guard let channel = self.channel else { return }
-            channel.markAsRead(){ error in
+            channel.markAsRead { error in
                 guard error == nil else {
                     // Handle error.
                     return
@@ -2021,7 +2021,7 @@ class GroupChannelChatViewController: UIViewController, UITableViewDelegate, UIT
                     let baseMessage = self.messages[index]
                     if baseMessage is SBDFileMessage {
                         let fileMessage = baseMessage as! SBDFileMessage
-                        if fileMessage.requestId.isEmpty && fileMessage.requestId == preSendMessageRequest {
+                        if !fileMessage.requestId.isEmpty && fileMessage.requestId == preSendMessageRequest {
                             self.determineScrollLock()
                             let indexPath = IndexPath(row: index, section: 0)
                             self.messageTableView.reloadRows(at: [indexPath], with: .none)
@@ -2112,7 +2112,7 @@ class GroupChannelChatViewController: UIViewController, UITableViewDelegate, UIT
                     let baseMessage = self.messages[index]
                     if baseMessage is SBDFileMessage {
                         let fileMessage = baseMessage as! SBDFileMessage
-                        if fileMessage.requestId.isEmpty && fileMessage.requestId == preSendMessageRequest {
+                        if !fileMessage.requestId.isEmpty && fileMessage.requestId == preSendMessageRequest {
                             self.determineScrollLock()
                             let indexPath = IndexPath(row: index, section: 0)
                             self.messageTableView.reloadRows(at: [indexPath], with: .none)
@@ -2496,7 +2496,7 @@ class GroupChannelChatViewController: UIViewController, UITableViewDelegate, UIT
                         let baseMessage = self.messages[index]
                         if baseMessage is SBDFileMessage {
                             let fileMessage = baseMessage as! SBDFileMessage
-                            if fileMessage.requestId.isEmpty && fileMessage.requestId == preSendMessage!.requestId {
+                            if !fileMessage.requestId.isEmpty && fileMessage.requestId == preSendMessage!.requestId {
                                 self.determineScrollLock()
                                 let indexPath = IndexPath(row: index, section: 0)
                                 if self.sendingImageVideoMessage[preSendMessage!.requestId] == false {
