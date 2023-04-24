@@ -32,7 +32,8 @@ This section shows you the prerequisites you need to check for using Sendbird Ch
 
 The minimum requirements for Chat SDK for iOS are:
 
-- iOS 9.0+
+- iOS 11.0+
+- Xcode 14.1+
 - [Chat SDK for iOS](https://github.com/sendbird/sendbird-ios-framework) 3.1.0 or higher
 
 Try the sample app using your data
